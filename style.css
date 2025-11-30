@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Urbanist";
+    height: 100vh;
+    background: url(./img/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* backdrop-filter: blur(5px); */
+
+    display: grid;
+    place-items: center;
+
+    user-select: none;
+
+}
+
+.container{
+    width: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container .weather-container{
+    width: 100%;
+    padding: 0 20px 20px;
+
+    background-color: rgba(0,0,0,0.2);
+    color: #fff;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+
+    z-index: 1;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 20px 0;
+}
+
+.header h5{
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.header img{
+    width: 100px;
+}
+
+.date-time{
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    position: relative;
+}
+
+.time h3{
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.time .ampm{
+    text-transform: uppercase;
+    font-size: 24px;
+    
+}
+
+.time .dot{
+    font-size: 28px;
+    animation: blinker 1s linear infinite;
+}
+
+.date-day{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.day::after{
+    content: " ";
+    border-right: 2px solid #fff;
+    margin-left: 10px;
+}
+
+.weather-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-box .search-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+.form{
+    width: 100%;
+}
+
+.search-container .search-box{
+    width: 100%;
+    padding: 20px 50px 10px 15px;
+    background-color: transparent;
+    color: #fff;
+    font-family: inherit;
+    letter-spacing: 3px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+
+    transition: all 0.3s ease-in-out;
+}
+
+.search-container .search-box:focus{
+    outline: none;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.search-container .search-box::placeholder{
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+
+}
+
+.search-container .fa-location-dot{
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+.search-container button{
+    padding: 20px 20px 5px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+}
+
+.search-container i{
+    font-size: 16px;
+}
+
+.weather-info{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    position: relative;
+}
+
+.weather-info img{
+    width: 150px;
+    margin: 20px 0 ;
+
+
+    
+}
+
+.information{
+    width: 100%;
+    margin: 10px 0 20px;
+    text-align: center;
+
+    position: relative;
+
+}
+
+.information h3{
+    font-size: 48px;
+}
+
+.information span{
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+
+}
+.information h4{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.other{
+    width: 100%;
+    padding: 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.other .wind, .other .humidy{
+    
+    width: 50%;
+    padding: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  
+    text-align: center;
+}
+
+.other .wind i, .other .humidy i{
+    margin-right: 10px;
+
+    font-size: 24px;
+}
+
+.notFound{
+    width: 100%;
+    padding: 20px 0;
+
+    text-align: center;
+
+    display: none;
+
+    transition: all 0.5s ease-in-out;
+}
+
+.notFound img{
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.forecast-itembox{
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+/* 
+    overflow-x: scroll;
+    padding-bottom: 10px; */
+
+
+}
+
+.forcast-item{
+    width: 18%;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+
+    transition: all 0.3s ease-in;
+
+}
+
+.forcast-item:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+
+.forcast-item img{
+    width: 50px;
+}
+
+.forcast-info{
+    display: flex;
+
+    gap: 3px;
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+
+@keyframes blinker {
+    25%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+}
+
+@media (max-width:576px) {
+    .container{
+        width: 95%;
+        
+    }
+
+    .forcast-item{
+        padding: 10px 0;
+    }
+
+    .forcast-item img{
+    width: 25px;
+    }
+
+    .forcast-item i,.forcast-item h5 {
+        font-size: 12px;
+
+    }
+
+}
+

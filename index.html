@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Weather App</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="weather-container">
+            <div class="header">
+                <h5 id="locationValue"><i class="fa-solid fa-location-dot"></i> --- </h5>
+                <img src="./img/luxcode-logo.png" alt="logo">
+            </div>
+
+            <div class="date-time">
+                <div class="time">
+                    <h3 class="clock" id="hours"></h3>
+                    <h4 class="dot">:</h4>
+                    <h3 class="clock" id="minutes"></h3>
+                    <h4 class="ampm" id="ampm"></h4>
+                </div>
+                <div class="date-day">
+                    <h4 id="day" class="day"></h4>
+                    <h4 id="date" class="date"></h4>
+                </div>
+            </div>
+
+            <div class="weather-box">
+                <div class="search-container">
+                    <form action="" id="searchForm" class="form">
+                        <input type="text" id="searchBox" class="search-box" placeholder="enter your location..." autocomplete="off"/>
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+
+                <div class="weather-info">
+                    <img src="./img/glass.svg" alt=""/>
+                    <div class="information">
+                        <h3 id="temperature">-<span>&deg;C</span></h3>
+                        <h4 id="infomation">-</h4>
+                    </div>
+                </div>
+
+                <div class="other">
+                    
+                    <div class="wind">
+                        <i class="fa-solid fa-wind"></i>
+                        <h3>- <span>m/s</span></h3>
+                    </div>
+                    <div class="humidy">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h3>-%</h3>
+                    </div>
+                </div>
+
+                <div class="notFound" id="notFound">
+                    <img src="./img/404.png" alt="404Error">
+                    <h3>404 Error !!! City Not Found</h3>
+                </div>
+
+            </div>
+
+            <div class="forecast-itembox">
+            </div>
+        </div>
+    </div>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-fns@3.6.0/locale/cdn.min.js"></script>
+</body>
+</html>
