@@ -85,10 +85,11 @@ async function curdata(locationInput){
                     forecastInfo.style.display = 'flex';
                     getlocation.style.display = 'block'
                     let temperature = Math.round(data.main.temp);
+                    const temperatureDisplay = temperature > 0 ? `+${temperature}` : `${temperature}`;
                     getWeatherInfo.innerHTML = `
                      <img src="./img/${data.weather[0].main}.png" alt="${data.weather[0].main}"/>
                     <div class="information">
-                        <h3 id="temperature">${temperature}<span>&deg;C</span></h3>
+                        <h3 id="temperature">${temperatureDisplay}<span>&deg;C</span></h3>
                         <h4 id="infomation">It's ${data.weather[0].main} day</h4>
                     </div>
                     `
@@ -116,28 +117,20 @@ function fivedayforecastdata(locationInput){
     fetch(fivedayforecast)
             .then(response=>response.json())
                 .then((data)=>{
-                    
                     let forecasts = data.list;
                     forecasts.forEach((forecast)=>{
                         let date = new Date(forecast.dt_txt);
                         let hours = date.getHours();
-                       
-                        
-
                         if(hours === 12){
                             forecastdatas.push(forecast);
                         }
+
+                        console.log(forecast)
                     });
 
                     forecastdatas.forEach((forecastdata)=>{
-                        console.log(forecastdata);
-
-                            // parse date from this forecast item
                             const fdDate = new Date(forecastdata.dt_txt);
-                            // format as "MMM/dd" using the existing months array instead of date-fns
                             const forecastdate = `${months[fdDate.getMonth()]} ${String(fdDate.getDate()).padStart(2, '0')}`;
-
-                            // round the numeric temperature first, then add a plus sign if positive
                             const tempValue = Math.round(forecastdata.main.temp);
                             const temperatureDisplay = tempValue > 0 ? `+${tempValue}` : `${tempValue}`;
 

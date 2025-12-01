@@ -283,7 +283,7 @@ body{
     margin-top: 15px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
 /* 
     overflow-x: scroll;
     padding-bottom: 10px; */
@@ -292,15 +292,15 @@ body{
 }
 
 .forcast-item{
-    width: 18%;
+    width: 20%;
     padding: 10px;
     background-color: rgba(255,255,255,0.2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 
     transition: all 0.3s ease-in;
 
@@ -320,7 +320,7 @@ body{
     gap: 3px;
     text-align: center;
 
-    font-size: 13px;
+    font-size: 14px;
 }
 
 
@@ -346,7 +346,7 @@ body{
     }
 
     .forcast-item img{
-    width: 25px;
+    width: 35px;
     }
 
     .forcast-item i,.forcast-item h5 {
